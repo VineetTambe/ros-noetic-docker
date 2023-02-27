@@ -36,6 +36,11 @@ use it to use enter the running docker:
 sudo docker exec -it CONTAINER_ID bash
 ```
 
+After you enter the docker - the docker by default will mount your /home folder
+```
+cd /home
+```
+So you can now move to where you want and use it as you would use your normal system.
 
 TODO: 
 use docker compose to run docker
