@@ -14,12 +14,12 @@ xhost +
 ```
 
 #docker run:
-get image id from:
+get DOCKER_IMAGE_ID from:
 ```
 sudo docker images
 ```
 
-use it to run:
+copy it and replace the DOCKER_IMAGE_ID at the end of this command to run the docker:
 ```
 sudo docker run --privileged -it -e DISPLAY -e QT_X11_NO_MITSHM=1 -v /tmp/.X11-unix:/tmp/.X11-unix:rw -v ~/:/home DOCKER_IMAGE_ID
 ```
@@ -31,7 +31,7 @@ sudo docker ps
 ```
 
 Exec will help you enter the same running docker from a different terminal.
-use it to use enter the running docker:
+use it to use enter the running docker by copying and replacing CONTAINER_ID in the following command:
 ```
 sudo docker exec -it CONTAINER_ID bash
 ```
