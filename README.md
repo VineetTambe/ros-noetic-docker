@@ -12,7 +12,7 @@ Running once built:
 ```
 xhost +local:
 ```
-This is not that huge of a problem but users should be cogniasant about the effects of this command.
+This is not that huge of a problem but users should be cognizant about the effects of this command.
 After you are done using the docker just remember to run ``` xhost - ``` To restore your previous settings
 
 #docker run:
