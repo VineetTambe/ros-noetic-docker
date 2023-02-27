@@ -33,7 +33,7 @@ sudo docker ps
 Exec will help you enter the same running docker from a different terminal.
 use it to use enter the running docker:
 ```
-sudo docker exec -it <CONTAINER_ID> bash
+sudo docker exec -it CONTAINER_ID bash
 ```
 
 
