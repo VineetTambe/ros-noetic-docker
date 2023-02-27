@@ -29,29 +29,32 @@ SHELL [ "/bin/bash" , "-c" ]
 RUN apt-get update && apt-get install -y git
 
 # Create a Catkin workspace and clone TurtleBot3 repos
-RUN source /opt/ros/noetic/setup.bash \
- && mkdir -p /clearpath_boxer_ws/src \
- && cd /clearpath_boxer_ws/ \
- && catkin_init_workspace \
- && cd ./src \
- && git clone https://github.com/boxer-cpr/boxer.git \
- && git clone https://github.com/boxer-cpr/boxer_desktop.git \
- && git clone https://github.com/boxer-cpr/boxer_simulation.git \
- && git clone https://github.com/boxer-cpr/boxer_robot.git \
- && git clone https://github.com/boxer-cpr/boxer_manipulation.git \
- && rosdep install --from-paths ../src --ignore-src --rosdistro=noetic -r -y
+RUN source /opt/ros/noetic/setup.bash 
+RUN echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+
+RUN apt-get install ros-noetic-rqt ros-noetic-rqt-common-plugins -y
+#  && mkdir -p /catkin_ws/src \
+#  && cd /catkin_ws/ \
+#  && catkin_init_workspace \
+#  && cd ./src \
+#  && git clone https://github.com/boxer-cpr/boxer.git \
+#  && git clone https://github.com/boxer-cpr/boxer_desktop.git \
+#  && git clone https://github.com/boxer-cpr/boxer_simulation.git \
+#  && git clone https://github.com/boxer-cpr/boxer_robot.git \
+#  && git clone https://github.com/boxer-cpr/boxer_manipulation.git \
+#  && rosdep install --from-paths ../src --ignore-src --rosdistro=noetic -r -y
 
 # Build the Catkin workspace and ensure it's sourced
-RUN source /opt/ros/noetic/setup.bash \
- && cd clearpath_boxer_ws \
- && catkin build
-RUN echo "source /clearpath_boxer_ws/devel/setup.bash" >> ~/.bashrc
+# RUN source /opt/ros/noetic/setup.bash \
+#  && cd catkin_ws \
+#  && catkin build
+# RUN echo "source /catkin_ws/devel/setup.bash" >> ~/.bashrc
  
 # Set the working folder at startup
-WORKDIR /clearpath_boxer_ws
+# WORKDIR /clearpath_boxer_ws
 
 LABEL version="1.0"
-LABEL description="A nvidia-ROS image with noetic-desktop-full, all tools and boxer sim installed"
+LABEL description="A nvidia-ROS image with noetic-desktop-full"
 
 # nvidia-docker hooks
 # LABEL com.nvidia.volumes.needed="nvidia_driver"
